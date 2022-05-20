@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fi.uef.sarjaliikennekramer.PrimaryController">
+   <left>
+      <VBox prefHeight="400.0" prefWidth="147.0" style="-fx-background-color: #DDDDDD;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Com port settings" />
+            <ComboBox fx:id="cmbPort" prefHeight="24.0" prefWidth="134.0" promptText="com port">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></ComboBox>
+            <ComboBox fx:id="cmbBaud" prefHeight="24.0" prefWidth="134.0" promptText="baud rate">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="cmbDataBits" prefHeight="24.0" prefWidth="134.0" promptText="data bits">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="cmbStopBits" prefHeight="24.0" prefWidth="134.0" promptText="stop bits">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="cmbParityBits" prefHeight="24.0" prefWidth="134.0" promptText="parity bits">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </ComboBox>
+            <Label fx:id="lblComStatus" prefHeight="23.0" prefWidth="135.0" style="-fx-background-color: D1A0A0;" text="com status">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#btnOpen" prefHeight="15.0" prefWidth="79.0" text="open">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button disable="true" mnemonicParsing="false" onAction="#btnClose" prefHeight="30.0" prefWidth="79.0" text="close">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Pane prefHeight="332.0" prefWidth="368.0" style="-fx-background-color: #F3F3F3;" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="txtAreaMessage" layoutX="14.0" layoutY="103.0" prefHeight="56.0" prefWidth="273.0" />
+            <Label layoutX="14.0" layoutY="172.0" text="end line" />
+            <ComboBox fx:id="cmbEndLine" layoutX="88.0" layoutY="168.0" prefHeight="24.0" prefWidth="185.0" />
+            <Button fx:id="btnSend" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="116.0" text="send" />
+            <TextArea fx:id="txtAreaResponse" layoutX="14.0" layoutY="29.0" prefHeight="56.0" prefWidth="273.0" />
+            <Label layoutX="23.0" layoutY="6.0" text="response" />
+            <Label layoutX="22.0" layoutY="85.0" text="mesage" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
