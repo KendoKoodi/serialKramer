@@ -46,6 +46,15 @@ public class PrimaryController implements Initializable{
 
     @FXML
     private void btnOpen(ActionEvent event) {
+        
+        try{
+        
+        SerialPort []portList = SerialPort.getCommPorts();
+        SerialPort serialPortSelected = portList[cmbPort.getSelectionModel().getSelectedIndex()];
+        
+        serialPortSelected.setBaudRate( Integer.parseInt( cmbBaud.getValue().toString()) );
+        
+        }catch (Exception e){}
     }
 
     @FXML
