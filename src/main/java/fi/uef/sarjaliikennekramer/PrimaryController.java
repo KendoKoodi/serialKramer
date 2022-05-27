@@ -18,6 +18,8 @@ import javafx.collections.ObservableList;
 
 
 public class PrimaryController implements Initializable{
+    
+    private SerialPort serialPortSelected;
 
     @FXML
     private ComboBox<?> cmbBaud;
@@ -36,6 +38,10 @@ public class PrimaryController implements Initializable{
     @FXML
     private TextArea txtAreaMessage;
     @FXML
+    private Button openButton;
+    @FXML
+    private Button closeButton;
+    @FXML
     private Button btnSend;
     @FXML
     private TextArea txtAreaResponse;
@@ -50,15 +56,37 @@ public class PrimaryController implements Initializable{
         try{
         
         SerialPort []portList = SerialPort.getCommPorts();
-        SerialPort serialPortSelected = portList[cmbPort.getSelectionModel().getSelectedIndex()];
+        serialPortSelected = portList[cmbPort.getSelectionModel().getSelectedIndex()];
         
         serialPortSelected.setBaudRate( Integer.parseInt( cmbBaud.getValue().toString()) );
+        
+        serialPortSelected.setNumDataBits( Integer.parseInt(cmbDataBits.getValue().toString()));
+        
+        serialPortSelected.setNumStopBits(Integer.parseInt(cmbStopBits.getValue().toString()));
+        
+        serialPortSelected.setParity( cmbParityBits.getSelectionModel().getSelectedIndex() );
+        
+        serialPortSelected.openPort();
+        
+        openButton.setDisable(true);
+        
+        closeButton.setDisable(false);
         
         }catch (Exception e){}
     }
 
     @FXML
     private void btnClose(ActionEvent event) {
+        
+        if (serialPortSelected.isOpen()){
+            serialPortSelected.closePort();
+            openButton.setDisable(false);
+            closeButton.setDisable(true);
+        }else{
+            
+            System.out.println ( "port not open... so no closing here" );
+            
+        }
     }
 
     @Override
