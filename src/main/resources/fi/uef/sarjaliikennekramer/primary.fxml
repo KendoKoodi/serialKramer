@@ -47,7 +47,7 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#btnOpen" prefHeight="15.0" prefWidth="79.0" text="open">
+            <Button fx:id="openButton" mnemonicParsing="false" onAction="#btnOpen" prefHeight="15.0" prefWidth="79.0" text="open">
                <VBox.margin>
                   <Insets bottom="5.0" left="10.0" top="10.0" />
                </VBox.margin>
@@ -55,7 +55,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button disable="true" mnemonicParsing="false" onAction="#btnClose" prefHeight="30.0" prefWidth="79.0" text="close">
+            <Button fx:id="closeButton" disable="true" mnemonicParsing="false" onAction="#btnClose" prefHeight="30.0" prefWidth="79.0" text="close">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
