@@ -154,6 +154,6 @@ public class PrimaryController implements Initializable{
                 "Both (\\r\\n)"
         );
         cmbEndLine.setItems(endLineLista);
-        cmbEndLine.getSelectionModel().select(0);
+        cmbEndLine.getSelectionModel().select(2);
     }
 }
