@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import com.fazecast.jSerialComm.*;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.collections.ObservableList;
@@ -87,6 +88,37 @@ public class PrimaryController implements Initializable{
             System.out.println ( "port not open... so no closing here" );
             
         }
+    }
+    
+    @FXML
+    private void btnSend(ActionEvent event){
+        if (serialPortSelected.isOpen()){
+            OutputStream outputStream = serialPortSelected.getOutputStream();
+            String data = "";
+            
+            switch (cmbEndLine.getSelectionModel().getSelectedIndex()){
+                case 0:
+                    data = txtAreaMessage.getText();
+                    break;
+                case 1:
+                    data = txtAreaMessage.getText() + "\n";
+                    break;
+                case 2:
+                    data = txtAreaMessage.getText() + "\r";
+                    break;
+                case 3:
+                    data = txtAreaMessage.getText() + "\r\n";
+                    break;
+            }
+            
+            try {
+                outputStream.write(data.getBytes());
+                System.out.println("send: " + data);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+        else System.out.println("port not open");
     }
 
     @Override
