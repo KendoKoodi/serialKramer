@@ -188,4 +188,13 @@ public class PrimaryController implements Initializable{
         cmbEndLine.setItems(endLineLista);
         cmbEndLine.getSelectionModel().select(2);
     }
+    
+    @Override
+    public void serialEvent(com.fazecast.jSerialComm.SerialPortEvent event){
+        if (event.getEventType() != serialPortSelected.LISTENING_EVENT_DATA_AVAILABLE)
+        {return;}
+        int bytesAvail = serialPortSelected.bytesAvailable();
+        if ( bytesAvail <= 0 ){ return; }
+        
+    }
 }
