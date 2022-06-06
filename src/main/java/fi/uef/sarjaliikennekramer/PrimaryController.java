@@ -43,7 +43,7 @@ public class PrimaryController implements Initializable{
     @FXML
     private Button closeButton;
     @FXML
-    private Button btnSend;
+    private Button sendButton;
     @FXML
     private TextArea txtAreaResponse;
 
